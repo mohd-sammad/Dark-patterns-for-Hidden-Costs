@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Highlighter</title>
+    <link rel="stylesheet" href="./css/hiddencost.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+      :root {
+        --bg-color: #081b29;
+        --secondary-bg-color: #112e42;
+        --text-color: #E0FFFF;
+        --main-color: #0070fae2;
+        --hover-color: #2980b9;
+      }
+
+      body {
+        width: 300px;
+        padding: 20px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        border: solid 2px var(--text-color);
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      .popup-container {
+        text-align: center;
+      }
+
+      .header {
+        background-color: var(--secondary-bg-color);
+        color: var(--text-color);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .header h3 {
+        margin: 0;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 14px;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #fff;
+        transition: .4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: var(--main-color);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+
+      .result {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: var(--secondary-bg-color);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .result h2 {
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: var(--main-color);
+      }
+
+      .back_button {
+        font-size: 2.4rem;
+        color: var(--main-color);
+        transition: .5s;
+        display: inline-block;
+        text-decoration: none;
+        margin-bottom: 20px;
+      }
+
+      .back_button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--main-color);
+        transform: scaleX(0);
+        transition: .5s;
+        z-index: -1;
+      }
+
+      .back_button:hover {
+        color: var(--bg-color);
+      }
+
+      .back_button:hover::before {
+        transform: scaleX(1);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="back_button" href="popup.html"><i class='bx bx-left-arrow-alt'></i></a>
+    <div class="popup-container">
+      <div class="header">
+        <h3>Hidden Cost Identifier</h3>
+      </div>
+      <div class="main-content">
+        <p>Toggle highlighting and Scrape for products:</p>
+        <label class="switch">
+            <input type="checkbox" id="toggleHighlightingCheckbox">
+            <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- HTML elements to display values -->
+      <div class="result" id="result_section">
+        <p id="amazonFullPrice"></p>
+        <p id="amazonProductPrices"></p>
+        <p id="amazonPriceDifference"></p>
+        <p id="amazonProductPrice"></p>
+        <p id="deliveryAmount"></p>
+        <p id="orderTotalAmount"></p>
+        <p id="discountDifference"></p>
+        <p id="amazontotalHiddenCost"></p>
+        <p id="amazonComparePrice"></p>
+        <p id="flipkartFullPrices"></p>
+        <p id="flipkartOfferPrices"></p>
+        <p id="flipkartPriceDifference"></p>
+        <p id="flipkartdiscountDifference"></p>
+        <p id="flipkartComparePrice"></p>
+        <p id="ajioFullPrice"></p>
+        <p id="ajioOfferPrice"></p>
+        <p id="ajioPriceDifference"></p>
+        <p id="ajiodiscountDifference"></p>
+        <p id="ajioComparePrice"></p>
+      </div>
+    </div>
+
+    <script src="hiddencost.js"></script>
+  </body>
+</html>
