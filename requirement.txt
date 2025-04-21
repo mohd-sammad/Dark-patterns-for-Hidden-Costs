@@ -1,0 +1,8 @@
+# requirements.txt
+
+selenium==4.17.2          # For automated browsing and testing
+beautifulsoup4==4.12.3    # For parsing HTML pages (optional for backend analysis)
+requests==2.31.0          # For API calls or fetching price data
+lxml==5.1.0               # Fast HTML parsing with BeautifulSoup
+flask==3.0.2              # Optional: If extension sends data to a local backend
+pynotifier==0.4.0         # For desktop notifications during development/testing
